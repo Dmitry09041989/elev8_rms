@@ -1,0 +1,31 @@
+@import "~bootstrap/scss/bootstrap";
+
+$neonGreen: #39ff14;
+
+body{
+    background-color: whitesmoke;
+}
+
+h1{
+    margin-bottom: 4vh;
+}
+
+.logo-text-color {
+    color: $neonGreen;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: $neonGreen;
+    color: black;
+}
+
+.btn-neon {
+    color: #fff;
+    background-color: $neonGreen;
+    border-color: green;
+}
+
+.card{
+    box-shadow: 0 2px 4px rgba(204,204,204, 0.8);
+    padding: 20px 40px;
+}
