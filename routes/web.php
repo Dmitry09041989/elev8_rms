@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::resource('/customers', \App\Http\Controllers\CustomerController::class);
 
+Route::resource('/dashboard', \App\Http\Controllers\DashBoardController::class);
+
 
 
 // Admin routes
