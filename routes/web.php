@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,16 +15,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    if(Gate::denies('logged_in'))
+    {
+        return view('auth.login');
+    }
+    return view('dashboard');
 });
 
-Route::resource('/customers', \App\Http\Controllers\CustomerController::class);
+//Route::prefix('user')->middleware('auth')->name('user.')->group(function (){
+//
+//});
 
-Route::resource('/dashboard', \App\Http\Controllers\DashBoardController::class);
+
+
+Route::prefix('user')->middleware('auth')->name('user.')->group(function (){
+    Route::get('/update-password', [\App\Http\Controllers\User\ProfileController::class, 'updatePassword'])->name('password');
+    Route::get('/profile', \App\Http\Controllers\User\ProfileController::class)->name('profile');
+});
+
+Route::middleware('auth')->group(function (){
+
+    Route::resource('/customers', \App\Http\Controllers\CustomerController::class);
+    Route::resource('/dashboard', \App\Http\Controllers\DashBoardController::class);
+    Route::resource('/appointments', \App\Http\Controllers\AppointmentsController::class);
+});
 
 
 
-// Admin routes
+
 //Route::prefix('admin')->name('admin.')->group(function (){
 //    Route::resource('/customers', \App\Http\Controllers\CustomerController::class);
 //});

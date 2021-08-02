@@ -9,6 +9,24 @@ class Customer extends Model
 {
     use HasFactory;
 
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'first_name',
+        'surname',
+        'email',
+        'street',
+        'city',
+        'postcode',
+        'phone_number',
+        'height',
+        'weight',
+    ];
+
     public function trainings()
     {
         return $this->belongsToMany('App\Models\Training');

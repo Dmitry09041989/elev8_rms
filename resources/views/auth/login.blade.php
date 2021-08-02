@@ -1,8 +1,8 @@
-@extends('layouts.main_layout')
-
+@extends('auth.layouts.login')
+@section('title', 'Login')
 @section('content')
-
-    <h1 class="">Login</h1>
+<div>
+    <h1 class="mb-5 text-center text-light">Login</h1>
     <form method="POST" action="{{route('login')}}">
         @csrf
         <div class="mb-3">
@@ -22,8 +22,10 @@
                 {{ $message }}
             </span>
             @enderror
+            <a href="{{route('password.request')}}" class="text-muted">Forgot your password?</a>
         </div>
 
         <button type="submit" class="btn btn-neon">Login</button>
     </form>
+</div>
 @endsection

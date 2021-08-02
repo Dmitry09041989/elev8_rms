@@ -4,10 +4,25 @@ $neonGreen: #39ff14;
 
 body{
     background-color: whitesmoke;
+
 }
 
-h1{
-    margin-bottom: 4vh;
+.sidebar{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+#login-image{
+    background-image: url("/images/elev8-logo-nobg.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 50vh;
+
+}
+
+.login-bg{
+    background-color: #212529;
 }
 
 .logo-text-color {
@@ -40,6 +55,10 @@ h1{
 .card{
     box-shadow: 0 2px 4px rgba(204,204,204, 0.8);
     padding: 20px 40px;
+}
+
+.dashboard-container{
+    box-shadow: 0 2px 4px rgba(204,204,204, 0.8);
 }
 
 

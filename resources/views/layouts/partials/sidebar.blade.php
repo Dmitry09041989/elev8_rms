@@ -1,10 +1,11 @@
-<div>
-    {{-- The whole world belongs to you. --}}
-
-    <div class="d-flex flex-column flex-shrink-0 p-3 logo-text-color bg-dark" style="width: 280px; height:100vh"> {{--sidebar--}}
+    <div class="d-flex flex-column flex-shrink-0 p-3 logo-text-color bg-dark sidebar" style="width: 30vh; height:100vh"> {{--sidebar--}}
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 mx-md-auto text-decoration-none">
 
-            <span class="fs-4 logo-text-color">Elev8 Fitness</span>
+
+            <div class="d-flex flex-column container align-items-center mx-auto" >
+            <img style="max-height:20vh ; max-width: 20vh" src="/images/elev8-logo-nobg.png">
+                <span class="fs-4 logo-text-color ">RMS</span>
+            </div>
 
         </a>
         <hr>
@@ -12,7 +13,7 @@
         <ul class="nav nav-pills flex-column mb-auto">
 
             <li> {{--Dashboard--}}
-                <a href="/dashboard" class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }} ">
+                <a href="{{route('dashboard.index')}}" class="nav-link {{ Request::is('dashboard*')||Request::is('/') ? 'active' : '' }} ">
                     <i class="bi bi-speedometer2"></i>
                     Dashboard
                 </a>
@@ -36,6 +37,12 @@
                     Customers
                 </a>
             </li>
+            <li> {{--Appointments--}}
+                <a href="{{route('appointments.index')}}" class="nav-link {{ Request::is('appointments*') ? 'active' : '' }}">
+                    <i class="bi bi-calendar-week-fill"></i>
+                    Appointments
+                </a>
+            </li>
 
         </ul>
         {{--            @endauth--}}
@@ -51,9 +58,8 @@
                     </button>
                     <div class="collapse" id="settings-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a class="nav-link ms-4" href="#">Overview</a></li>
-                            <li><a class="nav-link ms-4" href="#">Updates</a></li>
-                            <li><a class="nav-link ms-4" href="#">Reports</a></li>
+                            <li><a class="nav-link ms-4" href="{{route('user.password')}}">Update Password</a></li>
+                            <li><a class="nav-link ms-4" href="{{route('user.profile')}}">Update Personal Details</a></li>
                             <li><a class="nav-link ms-4" href="{{route('logout')}}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">Sign out</a></li>
                             <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none">
@@ -73,5 +79,4 @@
             @endauth
         @endif
     </div>  {{--sidebar--}}
-</div>
 
