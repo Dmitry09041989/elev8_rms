@@ -5,16 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Training extends Model
+class Message extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name'
+      'title',
+      'content',
+      'customer_id',
     ];
 
-    public function customers()
+    public function scopeMessageWithCustomerID($query, $id)
     {
-        return $this->belongsToMany('App\Models\Customer');
+        return $query->where('customer_id', $id);
     }
 }

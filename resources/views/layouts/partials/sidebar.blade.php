@@ -19,15 +19,14 @@
                 </a>
             </li>
             <li class="mb-1"> {{--Website--}}
-                <button class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#web-collapse" aria-expanded="true">
+                <button class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#web-collapse" aria-expanded="true" >
                     <i class="bi bi-grid"></i>
                     Website
                 </button>
-                <div class="collapse" id="web-collapse">
+                <div class="collapse {{ Request::is('website*') ? 'show' : '' }}" id="web-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="nav-link ms-4">Overview</a></li>
-                        <li><a href="#" class="nav-link ms-4">Updates</a></li>
-                        <li><a href="#" class="nav-link ms-4">Reports</a></li>
+                        <li><a href="{{route('sections.index')}}" class="nav-link ms-4 {{ Request::is('*sections*') ? 'active' : '' }}">Sections</a></li>
+                        <li><a href="{{route('articles.index')}}" class="nav-link ms-4 {{ Request::is('*articles*') ? 'active' : '' }}">Articles</a></li>
                     </ul>
                 </div>
             </li>
@@ -35,6 +34,12 @@
                 <a href="{{route('customers.index')}}" class="nav-link {{ Request::is('customers*') ? 'active' : '' }}">
                     <i class="bi bi-person-circle"></i>
                     Customers
+                </a>
+            </li>
+            <li> {{--Trainings--}}
+                <a href="{{route('trainings.index')}}" class="nav-link {{ Request::is('trainings*') ? 'active' : '' }}">
+                    <i class="bi bi-file-spreadsheet"></i>
+                    Trainings Sessions
                 </a>
             </li>
             <li> {{--Appointments--}}

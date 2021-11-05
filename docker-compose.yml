@@ -17,6 +17,7 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
+            - app-shared
         depends_on:
             - mysql
             - redis
@@ -80,6 +81,9 @@ services:
 networks:
     sail:
         driver: bridge
+    app-shared:
+        driver: bridge
+
 volumes:
     sailmysql:
         driver: local

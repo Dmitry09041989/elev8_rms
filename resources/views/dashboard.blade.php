@@ -31,11 +31,11 @@
                     </div>
                 </a>
                 <div class="col">
-                    <a href="" class="text-decoration-none">
+                    <a href="{{route('trainings.index')}}" class="text-decoration-none">
                         <div class="card text-white bg-primary mb-3">
-                            <div class="card-header">Customers</div>
+                            <div class="card-header">Training sessions</div>
                             <div class="card-body">
-                                <h5 class="card-title">Dark card title</h5>
+                                <h5 class="card-title">View all training session types</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the
                                     bulk of the card's content.</p>
                             </div>
@@ -43,11 +43,11 @@
                     </a>
                 </div>
                 <div class="col">
-                    <a href="" class="text-decoration-none">
+                    <a href="{{route('trainings.create')}}" class="text-decoration-none">
                         <div class="card text-dark bg-warning mb-3">
-                            <div class="card-header">Customers</div>
+                            <div class="card-header">Create</div>
                             <div class="card-body">
-                                <h5 class="card-title">Dark card title</h5>
+                                <h5 class="card-title">Create new session type</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the
                                     bulk of the card's content.</p>
                             </div>

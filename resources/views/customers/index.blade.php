@@ -38,6 +38,7 @@
                     <td>{{$customer->phone_number}}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" href="{{route('customers.show', $customer->id)}}">View</a>
+                        <a class="btn btn-sm btn-success" href="{{route('customers.message', $customer->id)}}">Message</a>
                         <a class="btn btn-sm btn-warning" href="{{route('customers.edit', $customer->id)}}">Edit</a>
                         <button type="button" class="btn btn-sm btn-danger"
                                 onclick="event.preventDefault();

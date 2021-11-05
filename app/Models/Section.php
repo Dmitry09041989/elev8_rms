@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Training extends Model
+class Section extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name'
+      'name'
     ];
 
-    public function customers()
+    public function articles()
     {
-        return $this->belongsToMany('App\Models\Customer');
+        return $this->hasMany(Article::class);
     }
 }
